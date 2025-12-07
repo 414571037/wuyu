@@ -9,7 +9,9 @@
     :root {
       --accent: #4f46e5;
       --muted: #6b7280;
-      --bg: #f8fafc
+      --bg: #f8fafc;
+      --container-width: 1100px;
+      --time-width: 120px;
     }
 
     * {
@@ -32,9 +34,9 @@
     }
 
     .container {
-      max-width: 1000px;
+      max-width: var(--container-width);
       margin: 0 auto;
-      padding: 24px
+      padding: 28px;
     }
 
     nav {
@@ -50,9 +52,9 @@
     }
 
     .brand img {
-      width: 44px;
-      height: 44px;
-      border-radius: 8px
+      width: 56px;
+      height: 56px;
+      border-radius: 10px;
     }
 
     .navlinks {
@@ -84,10 +86,10 @@
 
     .profile {
       background: #fff;
-      padding: 20px;
+      padding: 22px;
       border-radius: 12px;
-      box-shadow: 0 6px 18px rgba(15, 23, 42, 0.06);
-      flex: 0 0 320px
+      box-shadow: 0 8px 22px rgba(15, 23, 42, 0.06);
+      flex: 0 0 340px;
     }
 
     .profile img {
@@ -97,8 +99,9 @@
     }
 
     .profile h1 {
-      margin: 12px 0 4px;
-      font-size: 20px
+      margin: 12px 0 6px;
+      font-size: 22px;
+      letter-spacing: 0.2px;
     }
 
     .profile p {
@@ -127,8 +130,10 @@
     }
 
     h2 {
-      margin: 0 0 12px;
-      font-size: 18px
+      margin: 0 0 14px;
+      font-size: 18px;
+      padding-bottom: 6px;
+      border-bottom: 1px solid #f1f5f9;
     }
 
     /* Skills */
@@ -181,32 +186,30 @@
     /* Timeline */
     .timeline {
       background: #fff;
-      padding: 16px;
+      padding: 18px;
       border-radius: 10px;
       position: relative;
-      /* for the vertical line */
     }
 
-    /* vertical line for the timeline */
+    /* vertical line for the timeline (align with --time-width) */
     .timeline::before {
       content: '';
       position: absolute;
-      left: 122px;
-      /* position between .time and .desc */
-      top: 16px;
-      bottom: 16px;
+      left: calc(var(--time-width) + 34px);
+      top: 18px;
+      bottom: 18px;
       width: 2px;
-      background: linear-gradient(#e6e9ef, #e6e9ef);
+      background: #e6e9ef;
       border-radius: 2px;
     }
 
     .timeline-item {
       display: flex;
       gap: 12px;
-      padding: 12px 0;
+      padding: 14px 0;
       border-bottom: 1px dashed #f1f5f9;
       position: relative;
-      /* allow dot placement relative to item */
+      align-items: flex-start;
     }
 
     .timeline-item:last-child {
@@ -214,23 +217,24 @@
     }
 
     .time {
-      width: 90px;
+      width: var(--time-width);
       color: var(--muted);
-      font-size: 13px
+      font-size: 13px;
+      position: relative;
+      flex: 0 0 var(--time-width);
     }
 
     /* dot marker aligned with the vertical line */
     .time::after {
       content: '';
       position: absolute;
-      right: -32px;
-      /* adjust to sit on the vertical line */
-      top: 10px;
+      left: calc(100% + 8px);
+      top: 6px;
       width: 12px;
       height: 12px;
       border-radius: 50%;
       background: var(--accent);
-      box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.08);
+      box-shadow: 0 0 0 6px rgba(79, 70, 229, 0.06);
       border: 2px solid #fff;
     }
 
@@ -242,15 +246,15 @@
     .grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
-      gap: 14px
+      gap: 18px;
     }
 
     .card {
       background: #fff;
-      padding: 14px;
-      border-radius: 10px;
-      box-shadow: 0 6px 18px rgba(15, 23, 42, 0.04);
-      transition: transform .18s ease, box-shadow .18s ease
+      padding: 16px;
+      border-radius: 12px;
+      box-shadow: 0 8px 24px rgba(15, 23, 42, 0.04);
+      transition: transform .22s cubic-bezier(.2, .9, .2, 1), box-shadow .22s ease;
     }
 
     .card:hover {
@@ -260,9 +264,9 @@
 
     .card img {
       width: 100%;
-      height: 140px;
+      height: 180px;
       object-fit: cover;
-      border-radius: 8px
+      border-radius: 10px;
     }
 
     .card h3 {
@@ -291,6 +295,8 @@
       }
     }
 
+    @media (max-width:600px) {}
+
     @media (max-width:600px) {
       .hero {
         flex-direction: column
@@ -311,6 +317,14 @@
 
       .navlinks {
         display: none
+      }
+
+      h2 {
+        font-size: 16px
+      }
+
+      .card img {
+        height: 140px
       }
     }
 
