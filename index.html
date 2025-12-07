@@ -182,14 +182,31 @@
     .timeline {
       background: #fff;
       padding: 16px;
-      border-radius: 10px
+      border-radius: 10px;
+      position: relative;
+      /* for the vertical line */
+    }
+
+    /* vertical line for the timeline */
+    .timeline::before {
+      content: '';
+      position: absolute;
+      left: 122px;
+      /* position between .time and .desc */
+      top: 16px;
+      bottom: 16px;
+      width: 2px;
+      background: linear-gradient(#e6e9ef, #e6e9ef);
+      border-radius: 2px;
     }
 
     .timeline-item {
       display: flex;
       gap: 12px;
       padding: 12px 0;
-      border-bottom: 1px dashed #f1f5f9
+      border-bottom: 1px dashed #f1f5f9;
+      position: relative;
+      /* allow dot placement relative to item */
     }
 
     .timeline-item:last-child {
@@ -200,6 +217,21 @@
       width: 90px;
       color: var(--muted);
       font-size: 13px
+    }
+
+    /* dot marker aligned with the vertical line */
+    .time::after {
+      content: '';
+      position: absolute;
+      right: -32px;
+      /* adjust to sit on the vertical line */
+      top: 10px;
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      background: var(--accent);
+      box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.08);
+      border: 2px solid #fff;
     }
 
     .desc {
