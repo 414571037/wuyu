@@ -148,11 +148,6 @@
       color: var(--muted)
     }
 
-    /* shift skill label text slightly to the right so it doesn't touch edges */
-    .skill .row .row>div:first-child {
-      padding-left: 12px;
-    }
-
     .progress {
       background: #eef2ff;
       border-radius: 999px;
@@ -183,77 +178,115 @@
       color: var(--muted)
     }
 
-    /* Timeline */
+    /* Timeline (styled to match provided design) */
     .timeline {
       background: #fff;
-      padding: 16px;
+      padding: 16px 16px 16px 88px;
       border-radius: 10px;
       position: relative;
-      /* for the vertical line */
     }
 
     /* vertical line for the timeline */
     .timeline::before {
       content: '';
       position: absolute;
-      left: 122px;
-      /* position between .time and .desc */
+      left: 40px;
       top: 16px;
       bottom: 16px;
-      width: 2px;
-      background: linear-gradient(#e6e9ef, #e6e9ef);
-      border-radius: 2px;
+      width: 4px;
+      background: #efeafd;
+      /* soft purple line */
+      border-radius: 4px;
+    }
+
+    .timeline-list {
+      display: flex;
+      flex-direction: column;
+      gap: 18px
     }
 
     .timeline-item {
       display: flex;
-      gap: 12px;
-      padding: 12px 0;
-      border-bottom: 1px dashed #f1f5f9;
+      gap: 14px;
+      padding: 4px 0;
       position: relative;
-      /* allow dot placement relative to item */
+      align-items: flex-start;
     }
 
     .timeline-item:last-child {
-      border-bottom: 0
-    }
-
-    .time {
-      width: 90px;
-      color: var(--muted);
-      font-size: 13px
+      margin-bottom: 0
     }
 
     /* dot marker aligned with the vertical line */
-    .time::after {
-      content: '';
+    .dot {
       position: absolute;
-      right: -32px;
-      /* adjust to sit on the vertical line */
-      top: 10px;
-      width: 12px;
-      height: 12px;
+      left: 36px;
+      top: 8px;
+      width: 14px;
+      height: 14px;
       border-radius: 50%;
       background: var(--accent);
-      box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.08);
-      border: 2px solid #fff;
+      box-shadow: 0 0 0 6px rgba(79, 70, 229, 0.06);
+      border: 3px solid #fff
     }
 
-    .desc {
+    .timeline-card {
+      display: flex;
+      gap: 12px;
+      align-items: flex-start;
+      background: #fff;
+      padding: 14px;
+      border-radius: 10px;
+      box-shadow: 0 6px 18px rgba(15, 23, 42, 0.04);
+      border: 1px solid #f3f4f6
+    }
+
+    .timeline-card img {
+      width: 96px;
+      height: 72px;
+      object-fit: cover;
+      border-radius: 8px;
+      flex: 0 0 96px
+    }
+
+    .timeline-card .card-body {
       flex: 1
     }
 
-    /* add space so description doesn't touch the timeline dot */
-    /* hide the dot marker (user requested no blue dots) */
-    .time::after {
-      display: none;
+    .timeline-card .date {
+      color: var(--muted);
+      font-weight: 700;
+      margin-bottom: 8px
     }
 
-    padding: 14px;
-    border-radius: 10px;
-    box-shadow: 0 6px 18px rgba(15, 23, 42, 0.04);
-    transition: transform .18s ease,
-    box-shadow .18s ease
+    .timeline-card h4 {
+      margin: 0 0 6px;
+      font-size: 16px
+    }
+
+    .timeline-card p {
+      margin: 0;
+      color: var(--muted);
+      line-height: 1.6
+    }
+
+    .small-note .timeline-card {
+      align-items: flex-start
+    }
+
+    /* Projects */
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 14px
+    }
+
+    .card {
+      background: #fff;
+      padding: 14px;
+      border-radius: 10px;
+      box-shadow: 0 6px 18px rgba(15, 23, 42, 0.04);
+      transition: transform .18s ease, box-shadow .18s ease
     }
 
     .card:hover {
@@ -314,11 +347,6 @@
 
       .navlinks {
         display: none
-      }
-
-      /* reset timeline spacing on small screens */
-      .desc {
-        margin-left: 0
       }
     }
 
@@ -424,30 +452,54 @@
         </section>
 
         <section id="timeline" class="section timeline">
-          <h2>工作 / 經歷時間軸</h2>
-          <div class="timeline-item">
-            <div class="time">2019-2022</div>
-            <div class="desc"><strong>曙光國中</strong> — 就讀期間參與資訊與設計相關活動。</div>
-          </div>
-          <div class="timeline-item">
-            <div class="time">2022-2025</div>
-            <div class="desc"><strong>磐石高中</strong> — 高中期間持續參與專題與社團活動。</div>
-          </div>
-          <div class="timeline-item">
-            <div class="time">2023</div>
-            <div class="desc"><strong>班聯會</strong> — 擔任美宣長兼任攝影長。</div>
-          </div>
-          <div class="timeline-item">
-            <div class="time">2024.03</div>
-            <div class="desc"><strong>姊妹校交流</strong> — 擔任交流儀式主持人。</div>
-          </div>
-          <div class="timeline-item">
-            <div class="time">2025</div>
-            <div class="desc"><strong>畢聯會</strong> — 參與美宣組。</div>
-          </div>
-          <div class="timeline-item">
-            <div class="time">2025 - 現在</div>
-            <div class="desc"><strong>輔仁大學</strong> — 繼續學業與參與校內活動。</div>
+          <h2>經歷</h2>
+          <div class="timeline-list">
+            <div class="timeline-item">
+              <div class="dot" aria-hidden></div>
+              <div class="card timeline-card">
+                <img src="https://via.placeholder.com/120x80.png?text=photo1" alt="曙光國中">
+                <div class="card-body">
+                  <div class="date">2019 - 2022</div>
+                  <h4>就讀曙光國中</h4>
+                  <p>當時對未來還沒有什麼頭緒，甚至不知道未來想讀哪間高中。</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="timeline-item">
+              <div class="dot" aria-hidden></div>
+              <div class="card timeline-card">
+                <img src="https://via.placeholder.com/120x80.png?text=photo2" alt="磐石高中">
+                <div class="card-body">
+                  <div class="date">2022 - 2025</div>
+                  <h4>就讀磐石高中（理工組）</h4>
+                  <p>逐漸確立方向，高二選擇理工組朝資訊發展，也交了很多好朋友。</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="timeline-item">
+              <div class="dot" aria-hidden></div>
+              <div class="card timeline-card">
+                <img src="https://via.placeholder.com/120x80.png?text=photo3" alt="輔仁大學">
+                <div class="card-body">
+                  <div class="date">2025 - 現在</div>
+                  <h4>輔仁大學</h4>
+                  <p>學測考上輔仁大學，目前課業壓力尚輕，與朋友們相處充滿歡笑。</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="timeline-item small-note">
+              <div class="dot" aria-hidden></div>
+              <div class="card timeline-card">
+                <div class="card-body">
+                  <div class="date">畢業後 暑假</div>
+                  <h4>工作經驗</h4>
+                  <p>畢業後暑假期間從事短期打工：6月在早餐店、7月在便當店；8月起至今於補習班擔任輔導老師，後來也擔任部分行政工作。</p>
+                </div>
+              </div>
+            </div>
           </div>
         </section>
 
