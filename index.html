@@ -205,7 +205,8 @@
 
     .timeline-item {
       display: flex;
-      gap: 22px; /* increased gap so text won't touch the dot */
+      gap: 22px;
+      /* increased gap so text won't touch the dot */
       padding: 14px 0;
       border-bottom: 1px dashed #f1f5f9;
       position: relative;
@@ -240,7 +241,8 @@
 
     .desc {
       flex: 1;
-      padding-left: 6px; /* small offset to keep text away from the dot */
+      padding-left: 6px;
+      /* small offset to keep text away from the dot */
     }
 
     /* Projects */
@@ -326,6 +328,50 @@
 
       .card img {
         height: 140px
+      }
+    }
+
+    /* Desktop: horizontal timeline layout */
+    @media (min-width:900px) {
+      .timeline {
+        display: flex;
+        flex-direction: row;
+        align-items: flex-start;
+        gap: 18px;
+        padding-top: 48px;
+        /* space for the dots above the line */
+      }
+
+      .timeline::before {
+        /* make the line horizontal */
+        top: 44px;
+        left: 18px;
+        right: 18px;
+        height: 2px;
+      }
+
+      .timeline-item {
+        flex: 1 1 0;
+        padding: 0 8px;
+        border-bottom: none;
+        text-align: center;
+      }
+
+      .time {
+        width: auto;
+        margin: 0 auto 8px;
+        text-align: center;
+      }
+
+      .time::after {
+        left: 50%;
+        transform: translateX(-50%);
+        top: -10px;
+      }
+
+      .desc {
+        padding-left: 0;
+        margin-top: 12px;
       }
     }
 
