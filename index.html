@@ -148,6 +148,11 @@
       color: var(--muted)
     }
 
+    /* shift skill label text slightly to the right so it doesn't touch edges */
+    .skill .row .row>div:first-child {
+      padding-left: 12px;
+    }
+
     .progress {
       background: #eef2ff;
       border-radius: 999px;
@@ -240,11 +245,15 @@
 
     /* add space so description doesn't touch the timeline dot */
     /* hide the dot marker (user requested no blue dots) */
-    .time::after { display: none; }
-      padding: 14px;
-      border-radius: 10px;
-      box-shadow: 0 6px 18px rgba(15, 23, 42, 0.04);
-      transition: transform .18s ease, box-shadow .18s ease
+    .time::after {
+      display: none;
+    }
+
+    padding: 14px;
+    border-radius: 10px;
+    box-shadow: 0 6px 18px rgba(15, 23, 42, 0.04);
+    transition: transform .18s ease,
+    box-shadow .18s ease
     }
 
     .card:hover {
