@@ -224,113 +224,99 @@
       content: '';
       position: absolute;
       right: -32px;
-
       /* adjust to sit on the vertical line */
-      .time::after {
-        content: '';
-        position: absolute;
-        /* align dot to the timeline line (centered) */
-        left: 122px;
-        top: 12px;
-        width: 12px;
-        height: 12px;
-        transform: translateX(-50%);
-        border-radius: 50%;
-        background: var(--accent);
-        box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.08);
-        border: 2px solid #fff;
-      }
+      top: 10px;
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      background: var(--accent);
+      box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.08);
+      border: 2px solid #fff;
+    }
 
-      /* add space so description doesn't touch the timeline dot */
-      .desc {
-        margin-left: 24px;
-      }
+    .desc {
+      flex: 1
+    }
 
-      /* Projects */
+    /* add space so description doesn't touch the timeline dot */
+    /* hide the dot marker (user requested no blue dots) */
+    .time::after { display: none; }
+      padding: 14px;
+      border-radius: 10px;
+      box-shadow: 0 6px 18px rgba(15, 23, 42, 0.04);
+      transition: transform .18s ease, box-shadow .18s ease
+    }
+
+    .card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 12px 30px rgba(15, 23, 42, 0.08)
+    }
+
+    .card img {
+      width: 100%;
+      height: 140px;
+      object-fit: cover;
+      border-radius: 8px
+    }
+
+    .card h3 {
+      margin: 8px 0 6px;
+      font-size: 16px
+    }
+
+    .card p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 14px
+    }
+
+    /* Footer */
+    footer {
+      padding: 18px;
+      text-align: center;
+      color: var(--muted);
+      font-size: 13px
+    }
+
+    /* Responsive */
+    @media (max-width:900px) {
       .grid {
-        display: grid;
-        grid-template-columns: repeat(3, 1fr);
-        gap: 14px
+        grid-template-columns: repeat(2, 1fr)
+      }
+    }
+
+    @media (max-width:600px) {
+      .hero {
+        flex-direction: column
       }
 
-      .card {
-        background: #fff;
-        padding: 14px;
-        border-radius: 10px;
-        box-shadow: 0 6px 18px rgba(15, 23, 42, 0.04);
-        transition: transform .18s ease, box-shadow .18s ease
-      }
-
-      .card:hover {
-        transform: translateY(-6px);
-        box-shadow: 0 12px 30px rgba(15, 23, 42, 0.08)
-      }
-
-      .card img {
+      .profile {
         width: 100%;
-        height: 140px;
-        object-fit: cover;
-        border-radius: 8px
+        flex: unset
       }
 
-      .card h3 {
-        margin: 8px 0 6px;
-        font-size: 16px
+      .grid {
+        grid-template-columns: 1fr
       }
 
-      .card p {
-        margin: 0;
-        color: var(--muted);
-        font-size: 14px
+      nav {
+        padding: 8px 0
       }
 
-      /* Footer */
-      footer {
-        padding: 18px;
-        text-align: center;
-        color: var(--muted);
-        font-size: 13px
+      .navlinks {
+        display: none
       }
 
-      /* Responsive */
-      @media (max-width:900px) {
-        .grid {
-          grid-template-columns: repeat(2, 1fr)
-        }
+      /* reset timeline spacing on small screens */
+      .desc {
+        margin-left: 0
       }
+    }
 
-      @media (max-width:600px) {
-        .hero {
-          flex-direction: column
-        }
-
-        .profile {
-          width: 100%;
-          flex: unset
-        }
-
-        .grid {
-          grid-template-columns: 1fr
-        }
-
-        nav {
-          padding: 8px 0
-        }
-
-        .navlinks {
-          display: none
-        }
-
-        /* reset timeline spacing on small screens */
-        .desc {
-          margin-left: 0
-        }
-      }
-
-      /* smooth scroll */
-      html {
-        scroll-behavior: smooth
-      }
+    /* smooth scroll */
+    html {
+      scroll-behavior: smooth
+    }
   </style>
   <script>
     // Small script to enable anchor smooth offset if needed
