@@ -1,11 +1,446 @@
 <!DOCTYPE html>
 <html lang="zh-TW">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>計算機</title>
+  <title>個人簡歷 — 王小喻</title>
+  <style>
+    :root {
+      --accent: #4f46e5;
+      --muted: #6b7280;
+      --bg: #f8fafc
+    }
+
+    * {
+      box-sizing: border-box
+    }
+
+    body {
+      font-family: system-ui, -apple-system, Segoe UI, Roboto, 'Noto Sans TC', sans-serif;
+      margin: 0;
+      background: var(--bg);
+      color: #111
+    }
+
+    header {
+      background: #fff;
+      border-bottom: 1px solid #e6e9ef;
+      position: sticky;
+      top: 0;
+      z-index: 20
+    }
+
+    .container {
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 24px
+    }
+
+    nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between
+    }
+
+    .brand {
+      display: flex;
+      gap: 12px;
+      align-items: center
+    }
+
+    .brand img {
+      width: 44px;
+      height: 44px;
+      border-radius: 8px
+    }
+
+    .navlinks {
+      display: flex;
+      gap: 12px
+    }
+
+    .navlinks a {
+      color: var(--muted);
+      text-decoration: none;
+      padding: 8px;
+      border-radius: 6px
+    }
+
+    .navlinks a:hover {
+      background: rgba(79, 70, 229, 0.08);
+      color: var(--accent)
+    }
+
+    main {
+      padding: 28px 16px
+    }
+
+    .hero {
+      display: flex;
+      gap: 24px;
+      align-items: center
+    }
+
+    .profile {
+      background: #fff;
+      padding: 20px;
+      border-radius: 12px;
+      box-shadow: 0 6px 18px rgba(15, 23, 42, 0.06);
+      flex: 0 0 320px
+    }
+
+    .profile img {
+      width: 100%;
+      border-radius: 8px;
+      display: block
+    }
+
+    .profile h1 {
+      margin: 12px 0 4px;
+      font-size: 20px
+    }
+
+    .profile p {
+      margin: 0;
+      color: var(--muted)
+    }
+
+    .contacts {
+      margin-top: 12px;
+      display: flex;
+      flex-direction: column;
+      gap: 8px
+    }
+
+    .contacts a {
+      color: var(--accent);
+      text-decoration: none
+    }
+
+    .content {
+      flex: 1
+    }
+
+    .section {
+      margin-top: 18px
+    }
+
+    h2 {
+      margin: 0 0 12px;
+      font-size: 18px
+    }
+
+    /* Skills */
+    .skill {
+      background: #fff;
+      padding: 14px;
+      border-radius: 10px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px
+    }
+
+    .skill .row {
+      display: flex;
+      justify-content: space-between;
+      font-size: 14px;
+      color: var(--muted)
+    }
+
+    .progress {
+      background: #eef2ff;
+      border-radius: 999px;
+      height: 12px;
+      overflow: hidden
+    }
+
+    .progress>span {
+      display: block;
+      height: 12px;
+      background: linear-gradient(90deg, var(--accent), #06b6d4);
+      border-radius: 999px;
+      transition: width .7s ease
+    }
+
+    /* Tags fallback */
+    .tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px
+    }
+
+    .tag {
+      background: #fff;
+      padding: 8px 12px;
+      border-radius: 999px;
+      border: 1px solid #eef2ff;
+      color: var(--muted)
+    }
+
+    /* Timeline */
+    .timeline {
+      background: #fff;
+      padding: 16px;
+      border-radius: 10px
+    }
+
+    .timeline-item {
+      display: flex;
+      gap: 12px;
+      padding: 12px 0;
+      border-bottom: 1px dashed #f1f5f9
+    }
+
+    .timeline-item:last-child {
+      border-bottom: 0
+    }
+
+    .time {
+      width: 90px;
+      color: var(--muted);
+      font-size: 13px
+    }
+
+    .desc {
+      flex: 1
+    }
+
+    /* Projects */
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 14px
+    }
+
+    .card {
+      background: #fff;
+      padding: 14px;
+      border-radius: 10px;
+      box-shadow: 0 6px 18px rgba(15, 23, 42, 0.04);
+      transition: transform .18s ease, box-shadow .18s ease
+    }
+
+    .card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 12px 30px rgba(15, 23, 42, 0.08)
+    }
+
+    .card img {
+      width: 100%;
+      height: 140px;
+      object-fit: cover;
+      border-radius: 8px
+    }
+
+    .card h3 {
+      margin: 8px 0 6px;
+      font-size: 16px
+    }
+
+    .card p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 14px
+    }
+
+    /* Footer */
+    footer {
+      padding: 18px;
+      text-align: center;
+      color: var(--muted);
+      font-size: 13px
+    }
+
+    /* Responsive */
+    @media (max-width:900px) {
+      .grid {
+        grid-template-columns: repeat(2, 1fr)
+      }
+    }
+
+    @media (max-width:600px) {
+      .hero {
+        flex-direction: column
+      }
+
+      .profile {
+        width: 100%;
+        flex: unset
+      }
+
+      .grid {
+        grid-template-columns: 1fr
+      }
+
+      nav {
+        padding: 8px 0
+      }
+
+      .navlinks {
+        display: none
+      }
+    }
+
+    /* smooth scroll */
+    html {
+      scroll-behavior: smooth
+    }
+  </style>
+  <script>
+    // Small script to enable anchor smooth offset if needed
+    document.addEventListener('DOMContentLoaded', () => {
+      // optional: close mobile nav in future
+      document.querySelectorAll('a[href^="#"]').forEach(a => {
+        a.addEventListener('click', (e) => {
+          // default smooth handled by CSS; could adjust offset here
+        })
+      });
+      // animate skill bars
+      const bars = document.querySelectorAll('.progress > span');
+      setTimeout(() => { bars.forEach(b => b.style.width = b.dataset.w + '%') }, 200);
+    });
+  </script>
 </head>
+
 <body>
-  <!-- 在這裡開始使用 Copilot 建立內容 -->
+  <header>
+    <div class="container">
+      <nav>
+        <div class="brand">
+          <img src="https://via.placeholder.com/88x88.png?text=Avatar" alt="avatar">
+          <div>
+            <strong>王小喻</strong>
+            <div style="color:var(--muted);font-size:13px">學習者 · 前端 & UI 與設計實作</div>
+          </div>
+        </div>
+        <div class="navlinks">
+          <a href="#skills">Skills</a>
+          <a href="#timeline">Experience</a>
+          <a href="#projects">Projects</a>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="hero">
+      <aside class="profile">
+        <img src="https://via.placeholder.com/400x240.png?text=示意圖" alt="示意照片">
+        <h1>王小喻</h1>
+        <p>熱衷於網頁設計、互動與前端實作。喜歡將想法做成可互動的作品。</p>
+
+        <div class="contacts">
+          <div><strong>Email:</strong> <a href="mailto:example@mail.com">example@mail.com</a></div>
+          <div><strong>GitHub:</strong> <a href="https://github.com/414571037" target="_blank">414571037</a></div>
+          <div><strong>Website:</strong> <a href="#">personal.site</a></div>
+        </div>
+      </aside>
+
+      <div class="content">
+        <section id="skills" class="section skill">
+          <h2>技能展示</h2>
+          <div class="row">
+            <div style="width:48%">
+              <div class="row">
+                <div>HTML / CSS</div>
+                <div>90%</div>
+              </div>
+              <div class="progress"><span data-w="90" style="width:6%"></span></div>
+            </div>
+            <div style="width:48%">
+              <div class="row">
+                <div>JavaScript</div>
+                <div>70%</div>
+              </div>
+              <div class="progress"><span data-w="70" style="width:6%"></span></div>
+            </div>
+          </div>
+          <div style="height:10px"></div>
+          <div class="row">
+            <div style="width:48%">
+              <div class="row">
+                <div>設計與溝通</div>
+                <div>80%</div>
+              </div>
+              <div class="progress"><span data-w="80" style="width:6%"></span></div>
+            </div>
+            <div style="width:48%">
+              <div class="row">
+                <div>專案管理</div>
+                <div>65%</div>
+              </div>
+              <div class="progress"><span data-w="65" style="width:6%"></span></div>
+            </div>
+          </div>
+
+          <div style="height:12px"></div>
+          <div class="tags">
+            <div class="tag">Figma</div>
+            <div class="tag">React</div>
+            <div class="tag">Bootstrap</div>
+            <div class="tag">團隊協作</div>
+          </div>
+        </section>
+
+        <section id="timeline" class="section timeline">
+          <h2>工作 / 經歷時間軸</h2>
+          <div class="timeline-item">
+            <div class="time">國中 (2015-2017)</div>
+            <div class="desc"><strong>資訊社社長</strong> — 帶領社團完成校內網頁比賽專題，負責版型與簡單互動。</div>
+          </div>
+          <div class="timeline-item">
+            <div class="time">高中 (2018-2020)</div>
+            <div class="desc"><strong>專題：智慧教室導覽</strong> — 與兩位同學合作，負責 UI 與前端互動。</div>
+          </div>
+          <div class="timeline-item">
+            <div class="time">大一 (2021)</div>
+            <div class="desc"><strong>實習：前端工程助理</strong> — 參與公司頁面切版與測試，學習團隊協作流程。</div>
+          </div>
+        </section>
+
+        <section id="projects" class="section">
+          <h2>專案作品集展示</h2>
+          <div class="grid">
+            <article class="card">
+              <img src="https://via.placeholder.com/600x300.png?text=Project+1" alt="project1">
+              <h3>校園導覽網站</h3>
+              <p>描述：一個互動式的校園導覽網頁，包含地圖與課程資訊。<br>角色：UI 與前端實作。</p>
+              <p style="margin-top:8px"><a href="#">查看連結</a></p>
+            </article>
+
+            <article class="card">
+              <img src="https://via.placeholder.com/600x300.png?text=Project+2" alt="project2">
+              <h3>比賽專題 — 學習筆記平台</h3>
+              <p>描述：協同製作的學習筆記整理平台，支援標籤與搜尋功能。<br>角色：前端切版與互動。</p>
+            </article>
+
+            <article class="card">
+              <img src="https://via.placeholder.com/600x300.png?text=Project+3" alt="project3">
+              <h3>Side Project — 個人作品集</h3>
+              <p>描述：本網站即為精簡個人作品集範例，包含響應式設計與簡單動畫。<br>角色：獨立開發。</p>
+            </article>
+
+            <article class="card">
+              <img src="https://via.placeholder.com/600x300.png?text=Project+4" alt="project4">
+              <h3>課堂作業：互動問卷</h3>
+              <p>描述：以 HTML/CSS/JS 製作的問卷系統，練習欄位驗證與動畫提示。<br>角色：開發者。</p>
+            </article>
+
+            <article class="card">
+              <img src="https://via.placeholder.com/600x300.png?text=Project+5" alt="project5">
+              <h3>設計練習：響應式 Header</h3>
+              <p>描述：專注於 header 與導覽的響應式設計與可用性測試。<br>角色：設計與實作。</p>
+            </article>
+          </div>
+        </section>
+      </div>
+    </section>
+
+    <footer>
+      <div>© 2025 王小喻 — 個人簡歷網站示範 | <a href="mailto:example@mail.com">example@mail.com</a></div>
+    </footer>
+  </main>
 </body>
+
 </html>
