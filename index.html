@@ -37,49 +37,83 @@
     </header>
 
     <main>
-        <section id="skills" class="container">
-            <h2>技能展示</h2>
-            <p class="muted">溝通、設計、學習與專案協作。以下為部分能力示意。</p>
-            <div class="skills-row">
-                <div class="skill-card">溝通能力 — 70%</div>
-                <div class="skill-card">設計能力 — 90%</div>
-                <div class="skill-card">學習能力 — 80%</div>
+        <section id="intro" class="container">
+            <div class="intro-grid">
+                <div class="intro-text reveal">
+                    <h2>你好，我是 吳宇涵</h2>
+                    <p class="muted">前端與視覺設計愛好者，喜歡把想法轉化為互動且有溫度的介面。</p>
+                    <p><a class="cta" href="#projects">查看作品</a> <a class="link-muted"
+                            href="mailto:hannie9631@gmail.com">聯絡我</a></p>
+                </div>
+                <div class="intro-stats reveal">
+                    <div class="stat">
+                        <strong>1.5+</strong>
+                        <span class="muted">年專案經驗</span>
+                    </div>
+                    <div class="stat">
+                        <strong>10+</strong>
+                        <span class="muted">完成作品</span>
+                    </div>
+                    <div class="stat">
+                        <strong>多領域</strong>
+                        <span class="muted">設計 / 前端 / 攝影</span>
+                    </div>
+                </div>
             </div>
         </section>
 
-        <section id="experience" class="container spaced">
-            <h2>工作／經歷時間軸</h2>
-            <ul class="timeline">
-                <li class="timeline-item"><strong>2019 - 2022</strong> — 曙光國中：參與校內活動與專題。</li>
-                <li class="timeline-item"><strong>2022 - 2025</strong> — 磐石高中：參與競賽與職務擔任。</li>
-                <li class="timeline-item"><strong>2023</strong> — 班聯會 美宣長兼攝影長。</li>
-                <li class="timeline-item"><strong>2024.03</strong> — 姊妹校交流儀式 主持人。</li>
-                <li class="timeline-item"><strong>2025</strong> — 畢聯會 美宣組。</li>
-                <li class="timeline-item"><strong>2025 - 現在</strong> — 輔仁大學：持續參與專題與社團。</li>
-            </ul>
+        <section id="skills" class="container spaced">
+            <h2>技能與互動</h2>
+            <p class="muted reveal">以下為互動式技能進度示意（滾動到視窗時會動畫）。</p>
+            <div class="skills-list">
+                <div class="skill reveal">
+                    <label>HTML / CSS</label>
+                    <div class="progress">
+                        <div class="progress-bar" data-value="95"></div>
+                    </div>
+                </div>
+                <div class="skill reveal">
+                    <label>JavaScript</label>
+                    <div class="progress">
+                        <div class="progress-bar" data-value="85"></div>
+                    </div>
+                </div>
+                <div class="skill reveal">
+                    <label>Design</label>
+                    <div class="progress">
+                        <div class="progress-bar" data-value="88"></div>
+                    </div>
+                </div>
+            </div>
         </section>
 
         <section id="projects" class="container spaced">
-            <h2>專案作品集展示</h2>
+            <h2>作品集（互動示範）</h2>
+            <p class="muted reveal">點擊任一卡片可在 lightbox 中檢視（示意）。</p>
             <div class="projects-grid">
-                <article class="project-card">
-                    <img src="assets/screenshots/project1.jpg" alt="校慶商品設計 截圖">
+                <article class="project-card reveal" tabindex="0" data-title="校慶商品設計">
+                    <div class="thumb" style="background-image:url('assets/screenshots/project1.jpg')"></div>
                     <h3>校慶商品設計</h3>
-                    <p class="muted">設計學校60周年紀念商品，負責視覺發想與樣式整合。</p>
                 </article>
-
-                <article class="project-card">
-                    <img src="assets/screenshots/project2.jpg" alt="手擲木飛機 截圖">
+                <article class="project-card reveal" tabindex="0" data-title="手擲木飛機">
+                    <div class="thumb" style="background-image:url('assets/screenshots/project2.jpg')"></div>
                     <h3>手擲木飛機</h3>
-                    <p class="muted">團隊從材料到結構調整，學習材料與平衡的重要性。</p>
                 </article>
-
-                <article class="project-card">
-                    <img src="assets/screenshots/project3.jpg" alt="探究與實作 截圖">
+                <article class="project-card reveal" tabindex="0" data-title="探究與實作">
+                    <div class="thumb" style="background-image:url('assets/screenshots/project3.jpg')"></div>
                     <h3>探究與實作</h3>
-                    <p class="muted">完成四項實作，強調實驗設計與數據蒐集。</p>
                 </article>
             </div>
+        </section>
+
+        <section id="timeline" class="container spaced">
+            <h2>時間軸</h2>
+            <ul class="timeline">
+                <li class="timeline-item reveal"><strong>2019 - 2022</strong> 曙光國中</li>
+                <li class="timeline-item reveal"><strong>2022 - 2025</strong> 磐石高中</li>
+                <li class="timeline-item reveal"><strong>2023</strong> 班聯會 美宣長</li>
+                <li class="timeline-item reveal"><strong>2025 - 現在</strong> 輔仁大學</li>
+            </ul>
         </section>
 
         <section id="contact" class="container spaced">

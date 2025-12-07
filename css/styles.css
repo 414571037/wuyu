@@ -190,3 +190,119 @@ a.link-muted {
         padding: 56px 12px
     }
 }
+
+/* Interactive / reveal animations */
+.reveal {
+    opacity: 0;
+    transform: translateY(18px);
+    transition: opacity .6s ease, transform .6s ease
+}
+
+.reveal.is-visible {
+    opacity: 1;
+    transform: none
+}
+
+/* Intro layout */
+.intro-grid {
+    display: grid;
+    grid-template-columns: 1fr 280px;
+    gap: 20px;
+    align-items: center
+}
+
+.intro-text h2 {
+    font-size: 2rem;
+    margin: 0
+}
+
+.intro-stats {
+    display: flex;
+    flex-direction: column;
+    gap: 12px
+}
+
+.stat {
+    background: rgba(255, 255, 255, 0.03);
+    padding: 12px;
+    border-radius: 8px;
+    text-align: center
+}
+
+/* Skills progress */
+.skills-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 12px
+}
+
+.skill label {
+    display: block;
+    margin-bottom: 8px;
+    color: var(--muted)
+}
+
+.progress {
+    background: rgba(255, 255, 255, 0.04);
+    height: 12px;
+    border-radius: 8px;
+    overflow: hidden
+}
+
+.progress-bar {
+    height: 100%;
+    width: 0;
+    background: linear-gradient(90deg, var(--accent), #ffb089);
+    transition: width 1.2s cubic-bezier(.2, .9, .3, 1)
+}
+
+/* Projects with thumb */
+.project-card {
+    cursor: pointer
+}
+
+.project-card .thumb {
+    height: 140px;
+    border-radius: 8px;
+    background-size: cover;
+    background-position: center;
+    margin-bottom: 10px
+}
+
+/* Lightbox placeholder (basic) */
+.lb-backdrop {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, .75);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 60;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity .2s
+}
+
+.lb-backdrop.show {
+    opacity: 1;
+    pointer-events: auto
+}
+
+.lb-content {
+    max-width: 900px;
+    width: 90%;
+    background: #071026;
+    padding: 12px;
+    border-radius: 10px
+}
+
+@media(max-width:800px) {
+    .intro-grid {
+        grid-template-columns: 1fr
+    }
+
+    .intro-stats {
+        flex-direction: row;
+        justify-content: space-between
+    }
+}
